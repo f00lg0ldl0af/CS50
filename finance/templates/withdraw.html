@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Withdraw cash
+{% endblock %}
+
+{% block main %}
+
+
+    <h2 class="display-6">Receiving Money</h2>
+    <form action="/withdraw" method="post">
+        <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input name="withdrawamount"type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="USD">
+        </div>
+
+        <div class="d-flex justify-content-start">
+            <label for="basic-url" class="form-label">Verifying User</label>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">@</span>
+            <input name="username" type="text" class="form-control" placeholder="Username" aria-label="Password">
+            <input name="password" type="text" class="form-control" placeholder="Password" aria-label="Username">
+        </div>
+
+        <div class="input-group">
+            <span class="input-group-text">Comments</span>
+            <textarea class="form-control" aria-label="With textarea" placeholder="You may leave this blank."></textarea>
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-primary" type="submit">Continue</button>
+        </div>
+    </form>
+
+
+
+{% endblock %}

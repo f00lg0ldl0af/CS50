@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    User Settings
+{% endblock %}
+
+{% block main %}
+
+
+    <!-- If password is valid, show another form to change password -->
+    {% if changePw %}
+
+        <h2 class="display-6">Change Password</h2>
+
+        <div class="flex-container">
+            <div class="boxed-text-left">
+                <p class="lead">Here are some tips for creating a strong password:</p>
+                <ul>
+                    <li>Password strength: Use at least 8 characters.</li>
+                    <li>Use a mix of letters (uppercase and lowercase), numbers, and symbols.</li>
+                    <li>Don't use a password from another site, or something too obvious like your pet's name.</li>
+                </ul>
+            </div>
+
+            <div class="border boxed-text d-flex align-items-center justify-content-center">
+                <form action="/changepw" method="post">
+                    <div class="form-floating mb-3 flex-container">
+                        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="newPassword" name="newPassword" placeholder="New password" type="password">
+                        <label for="floatingInput">New password</label>
+                        <i class="bi bi-eye-slash" id="togglePassword" onclick="togglePassword()"></i>
+                    </div>
+
+                    <div class="form-floating mb-3 flex-container">
+                        <input class="form-control mx-auto w-auto" id="newConfirmation" name="newConfirmation" placeholder="Confirm new password" type="password">
+                        <label for="floatingInput">Confirm new password</label>
+                        <i class="bi bi-eye-slash" id="toggleConfirm" onclick="toggleConfirmation()"></i>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">Change password</button>
+                </form>
+            </div>
+        </div>
+
+
+
+    <!-- Else -->
+    {% else %}
+
+    {%for user in users%}
+    <h2 class="display-6">Hi User {{ user.id}} </h2>
+    <p class="lead"> To continue, first verify it's you </p>
+    {% endfor %}
+
+    <form action="/user" method="post">
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Enter your password" type="password">
+        </div>
+
+        <div class="flex-container">
+            <div>
+                <input type="checkbox" id="password" name="password" onclick="showPassword()">
+                <label for="password">Show password</label><br>
+            </div>
+
+            <div>
+                <button class="btn btn-primary" type="submit">Next</button>
+            </div>
+        </div>
+
+    </form>
+
+    {% endif %}
+
+{% endblock %}

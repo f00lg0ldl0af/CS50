@@ -1,0 +1,21 @@
+sort1 uses: Bubble sort.
+
+How do you know?: Although sort1 has similar run times to sort3
+for random sets of numbers, sort1's run time for a huge set of
+sorted numbers is significantly lesser than sort3's. Since Bubble
+sort's big Omega is smaller than Selection sort's, having a
+significantly smaller run time for ideal cases like sorted sets of
+numbers suggests that sort1 is Bubble sort.
+
+sort2 uses: Merge sort.
+
+How do you know?: sort2's run time for a huge set of random numbers
+is comparably lesser than that of sort1's and sort3's.
+
+sort3 uses: Selection sort.
+How do you know?: Although sort1 and sort3  has similar run times
+for random sets of numbers, sort3's run time for a huge set of
+sorted numbers is significant greater than sort1's. Since Selection
+sort's big Omega is smaller than Bubble sort's, sort3 is likely
+to be Selection sort.
+

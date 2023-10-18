@@ -1,0 +1,6 @@
+If songs.db contains the top 100 songs of one listener from 2018, how would you characterize their audio aura?
+Benchmark the averaged energy, valence and danceability of the person's top 100 songs from the past year against the respective audio auras' values
+See which values are closely matched to and determine the audio aura most appropriate for listener
+
+Hypothesize about why the way you’ve calculated this aura might not be very representative of the listener. What better ways of calculating this aura would you propose?
+The listener might have only heard less than 100 songs in the past year. We could calculate the audio aura by looking at the person's top 100 songs from the point at which the person downloaded Spotify

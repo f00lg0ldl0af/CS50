@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table table-bordered table-striped">
+        <thead class="thead-light">
+          <tr>
+            <th>Stock</th>
+            <th>Share Quantity</th>
+            <th>Price</th>
+            <th>Total Value</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                    <td> {{stock.name}}</td>
+                    <td> {{stock.total_shares}}</td>
+                    <td> {{stock.price}}</td>
+                    <td> {{stock.value | usd}}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="3" align="right">Cash</td>
+                <td>{{cash | usd}}</td>
+            </tr>
+            <tr>
+                <td colspan="3" align="right">Grand total</td>
+                <td>{{grand_total | usd}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-end input-group mb-3">
+        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Transfer Money</button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/deposit">Deposit</a></li>
+            <li><a class="dropdown-item" href="/withdraw">Withdraw</a></li>
+        </ul>
+    </div>
+
+
+{% endblock %}

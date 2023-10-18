@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <h2 class="display-6">Get Quote</h2>
+    <form action="/quote" method="post" class="flex-container">
+        <div class="mb-3">
+            <input id="symbol" type="text" name="symbol" placeholder="Stock Symbol">
+            <button class="btn btn-primary" type="submit">Quote</button>
+            <div class="d-flex justify-content-center ">
+                <div class="form-text small-boxed-text p-3 mb-2 bg-light text-dark">Companies trading on the NYSE typically have three or fewer letters.
+                    Nasdaq firms generally have four- or five-letter symbols (e.g., Adobe Inc. (ADBE), Apple Inc. (AAPL), and Groupon Inc. (GRPN)).
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+        {% if quote %}
+            <div class="display-3"> <!-- Not sure why this does not reflect -->
+                <h3>{{ quote["name"] }} ({{ quote["symbol"]}})</h3>
+                <p>Price: {{ quote["price"] | usd}}</p>
+            </div>
+        {% endif%}
+    </div>
+
+{% endblock %}

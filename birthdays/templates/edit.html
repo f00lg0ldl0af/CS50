@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+    <div class="section">
+
+        <h2>Edit a Birthday</h2>
+        <!-- TODO: Create a form for users to edit month and a day for the person -->
+        <form action="/" method="post">
+            {% for birthday in birthdays%}
+                <input name="id" type="hidden" value="{{birthday.id}}">
+                <input name="name" type="text" value="{{birthday.name}}" readonly>
+                <input autocomplete="off" autofocus name="month" placeholder = "{{birthday.month}}" type="text">
+                <input autocomplete="off" autofocus name="day" placeholder = "{{birthday.day}}" type="text">
+                <button type="submit">Edit Birthday</button>
+            {% endfor %}
+        </form>
+    </div>
+</div>
+
+{% endblock %}
